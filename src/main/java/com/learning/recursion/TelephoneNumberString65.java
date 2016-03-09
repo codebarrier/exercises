@@ -23,15 +23,15 @@ public class TelephoneNumberString65 {
 
     public static void main(String[] args) {
         TelephoneNumberString65 main = new TelephoneNumberString65();
-        main.listPermutationsFromNumbers("324");
+        main.listWordsFromNumbers("324");
     }
 
 
-    private void listPermutationsFromNumbers(String phoneNumber) {
-        listPermutations("", phoneNumber);
+    private void listWordsFromNumbers(String phoneNumber) {
+        listWordsFromNumbers("", phoneNumber);
     }
 
-    private void listPermutations(String prefix, String value) {
+    private void listWordsFromNumbers(String prefix, String value) {
         if (value.length() == 0) {
             System.out.println(prefix);
         } else {
@@ -39,7 +39,7 @@ public class TelephoneNumberString65 {
             String rest = value.substring(1);
             String alp = numberMap.get(String.valueOf(local));
             for (int j = 0; j < alp.length(); j++) {
-                listPermutations(prefix + String.valueOf(alp.charAt(j)), rest);
+                listWordsFromNumbers(prefix + String.valueOf(alp.charAt(j)), rest);
             }
         }
     }
