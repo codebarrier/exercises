@@ -23,26 +23,23 @@ public class TelephoneNumberString65 {
 
     public static void main(String[] args) {
         TelephoneNumberString65 main = new TelephoneNumberString65();
-        main.listPermutationsFromNumbers("3");
+        main.listPermutationsFromNumbers("324");
     }
 
-    private void listPermutationsFromNumbers(String phoneNumber) {
-        String stringequivalent = "";
-        for (int i = 0; i < phoneNumber.length(); i++) {
-            stringequivalent = stringequivalent + (numberMap.get(String.valueOf(phoneNumber.charAt(i))) != null ? numberMap.get(String.valueOf(phoneNumber.charAt(i))) : "");
-        }
 
-        listPermutations("", stringequivalent);
+    private void listPermutationsFromNumbers(String phoneNumber) {
+        listPermutations("", phoneNumber);
     }
 
     private void listPermutations(String prefix, String value) {
         if (value.length() == 0) {
             System.out.println(prefix);
         } else {
-            for (int i = 0; i < value.length(); i++) {
-                char local = value.charAt(i);
-                String rest = value.substring(0, i) + value.substring(i + 1);
-                listPermutations(prefix + local, rest);
+            char local = value.charAt(0);
+            String rest = value.substring(1);
+            String alp = numberMap.get(String.valueOf(local));
+            for (int j = 0; j < alp.length(); j++) {
+                listPermutations(prefix + String.valueOf(alp.charAt(j)), rest);
             }
         }
     }
