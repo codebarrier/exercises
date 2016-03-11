@@ -10,6 +10,8 @@ public class ListeningIn {
         System.out.println(listen.probableMatch("cptr", "capture"));
         System.out.println(listen.probableMatch("port to me", "teleport to me"));
         System.out.println(listen.probableMatch("back  to base", "back to base"));
+        System.out.println(listen.probableMatch("port  to me", "teleport to me"));
+
     }
 
     public String probableMatch(String typed, String phrase) {
